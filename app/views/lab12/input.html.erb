@@ -1,0 +1,11 @@
+<h1>Введите последовательность чисел, не менее 10</h1>
+<%unless flash[:notice].blank?%>
+  <h2 style = 'color:red'><%=flash[:notice]%></h2>
+
+<%end%>
+<%= form_with url: :show, method: :get do |form| %>
+  <%= form.text_field :inpt, in:1..Float::INFINITY%>
+  <%= form.submit "Отправить", id: "submit-btn" %>
+<% end %>
+<%=link_to 'Выйти из учетной записи', session_logout_path%>
+<%=link_to 'Просмотреть базу с пользователями', :users%>
